@@ -33,12 +33,25 @@ export default function Stopwatch() {
     return `${minutes}:${remainingSeconds < 10 ? "0" : ""}${remainingSeconds}`;
   };
 
+  const containerStyle = {
+    display: "flex",
+    justifyContent: "center",
+    alignitems: "center",
+  }
+  const buttonStyle = {
+    display: "flex",
+    justifyContent: "center",
+    alignitems: "center",
+
+  }
   return (
     <div>
-      <h1>Stopwatch</h1>
-      <p>Time: {formatTime(elapsedTime)}</p>
-      <button onClick={startStop}>{isRunning ? "Stop" : "Start"}</button>
-      <button onClick={reset}>Reset</button>
+      <h1 style={containerStyle}>Stopwatch</h1>
+      <p style={containerStyle}>Time: {formatTime(elapsedTime)}</p>
+      <div style={buttonStyle}>
+        <button  onClick={startStop}>{isRunning ? "Stop" : "Start"}</button>
+        <button  onClick={reset}>Reset</button>
+      </div>
     </div>
   );
 }
